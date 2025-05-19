@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Alerts</title>
+</head>
+<body>
+    <h2>My Alerts</h2>
+    <a href="{{ url_for('profile') }}">Back to Profile</a>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Timestamp</th>
+            <th>Source IP</th>
+            <th>Destination IP</th>
+            <th>Source Port</th>
+            <th>Destination Port</th>
+            <th>Packet Size</th>
+            <th>TCP Flags</th>
+            <th>Alert Type</th>
+        </tr>
+        {% for alert in alerts %}
+        <tr>
+            <td>{{ alert.timestamp }}</td>
+            <td>{{ alert.source_ip }}</td>
+            <td>{{ alert.destination_ip }}</td>
+            <td>{{ alert.source_port }}</td>
+            <td>{{ alert.destination_port }}</td>
+            <td>{{ alert.packet_size }}</td>
+            <td>{{ alert.tcp_flags }}</td>
+            <td>{{ alert.alert_type }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('export_alerts_csv') }}">Download as CSV</a>
+
+</body>
+</html>
