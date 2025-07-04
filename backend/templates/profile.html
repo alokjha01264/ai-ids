@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Profile</title></head>
+<body>
+<h2>Welcome, {{ email }}</h2>
+<form method="POST" action="{{ url_for('collect_normal') }}">
+    <button type="submit">Capture Normal Traffic</button>
+</form>
+<form method="POST" action="{{ url_for('train_model') }}">
+    <button type="submit">Train My Model</button>
+</form>
+<form method="POST" action="{{ url_for('run_detection') }}">
+    <button type="submit">Run Real-Time Detection</button>
+</form>
+<a href="{{ url_for('my_alerts_json') }}">View My Alerts (JSON)</a><br>
+<a href="{{ url_for('export_alerts_csv') }}">Download Alerts as CSV</a><br>
+<a href="{{ url_for('auth.logout') }}">Logout</a>
+</body>
+</html>
